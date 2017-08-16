@@ -26,7 +26,7 @@ class ExtractorWorker
         if abilities_response.code == 200
           abilities_collection = abilities_response['data']
           abilities_collection.each do |ability|
-            exist = Ability.where(id: ability['id']).first.present?
+            exist = Ability.exists?(ability['id'])
             if !exist
               Ability.create( name: ability['name'], description: ability['description'], is_ultimate: ability['is_ultimate'], hero_id: ability['hero']['id'])
             end
@@ -49,7 +49,7 @@ class ExtractorWorker
         if heroes_response.code == 200
           heroes_collection = heroes_response['data']
           heroes_collection.each do |hero|
-            exist = Hero.where(id: hero['id']).first.present?
+            exist = Hero.exists?( hero['id'])
             if !exist
               Hero.create( name: hero['name'], real_name: hero['real_name'], health: hero['health'], armour: hero['armour'], shield: hero['shield'])
             end
@@ -74,7 +74,7 @@ class ExtractorWorker
           next_page = abilities_response['next']
           abilities_collection = abilities_response['data']
           abilities_collection.each do |ability|
-            exist = Ability.where(id: ability['id']).first.present?
+            exist = Ability.exists?( ability['id'])
             if !exist
               Ability.create( name: ability['name'], description: ability['description'], is_ultimate: ability['is_ultimate'], hero_id: ability['hero']['id'])
             end
@@ -103,7 +103,7 @@ class ExtractorWorker
           next_page = heroes_response['next']
           heroes_collection = heroes_response['data']
           heroes_collection.each do |hero|
-            exist = Hero.where(id: hero['id']).first.present?
+            exist = Hero.exists?(hero['id'])
             if !exist
               Hero.create( name: hero['name'], real_name: hero['real_name'], health: hero['health'], armour: hero['armour'], shield: hero['shield'])
             end
