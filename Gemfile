@@ -46,3 +46,6 @@ gem 'httparty'
 gem 'sidekiq'
 # Visualizing DB
 gem 'rails_admin'
+# API
+gem 'jsonapi-resources'
+
