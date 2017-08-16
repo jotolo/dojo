@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  real_name: MyString
+  health: 1
+  armour: 1
+  shield: 1
+
+two:
+  name: MyString
+  real_name: MyString
+  health: 1
+  armour: 1
+  shield: 1
